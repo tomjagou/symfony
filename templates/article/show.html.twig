@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="d-flex row">
+    <h5>{{ article.title }}</h5>
+
+    <div>{{ article.author }}</div>
+    <div>{{ article.createdAt|date('d-m-Y') }}</div>
+    <div class="">{{ article.content }}</div>
+</div>
+{% endblock %}

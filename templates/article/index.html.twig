@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="count">
+    {{ pagination.getTotalItemCount }}
+</div>
+
+<div class="m-5">
+    <div class="d-flex flex-wrap">
+        {% for article in pagination %}
+        <div class="card m-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{{ path('article.show', {id: article.id}) }}" class="card-link">{{ article.title }}</a>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ article.content|striptags|slice(0, 300) }}</h6>
+                <a href="{{ path('article.show', {id: article.id}) }}" class="card-link"> ... Voir plus</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
